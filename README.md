@@ -1,8 +1,8 @@
-#How it works
+# How it works
 
 deb-changectl only manipulates its yaml configuration file. deb-genchange then creates or recreates debian/changelog from the yaml. This suite is designed to be run by gilab cicd, Jenkins or some other cicd toolset.
 
-#Examples
+# Examples
 
 deb-changectl add [ARGS]
 
