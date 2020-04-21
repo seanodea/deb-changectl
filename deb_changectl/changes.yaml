@@ -1,0 +1,10 @@
+changelist:
+  bd50ce77:
+    author-email: patchshorts@gmail.com
+    author-name: Chris Godwin
+    date: Mon, 20 Apr 2020 18:02:39 -0000
+    distributions: stable
+    message: Update README.md
+    package-name: deb-changectl
+    ref: bd50ce77
+    urgency: low

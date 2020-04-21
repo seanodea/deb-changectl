@@ -1,0 +1,32 @@
+import python-debian
+
+from python-debian import debian
+
+import sys
+
+changelog = debian.Changelog()
+
+changelog.new_block(package='python-debian',
+                    version=Version('0.1'),
+                    distributions='unstable',
+                    urgency='low',
+                    author='James Westby <jw+debian@jameswestby.net>',
+                    date='Thu,  3 Aug 2006 19:16:22 +0100',
+                    )
+
+changelog.add_change('');
+changelog.add_change('  * Welcome to changelog.py');
+changelog.add_change('');
+
+try:
+  filename = sys.argv[1]
+except IndexError:
+  print "Usage: "+sys.argv[0]+" filename"
+  sys.exit(1)
+
+f = open(filename, 'w')
+
+try:
+  changelog.write_to_open_file(f)
+finally:
+  f.close()
