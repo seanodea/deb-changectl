@@ -8,7 +8,7 @@ class options():
 
     def getparameters(self):
         (repo, dir) = commit.getdir(os.getcwd())
-        parameters = commit.getcommitdata(repo, dir)
+        parameters = commit.getrecentcommitdata(repo, dir)
         return parameters
     
     def parseoptions(self, args, parameters):
@@ -27,5 +27,5 @@ class options():
                 sys.exit(0)
         except:
             pass
-        
+
         return options

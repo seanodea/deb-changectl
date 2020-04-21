@@ -14,7 +14,7 @@ class commit():
           except git.exc.InvalidGitRepositoryError:
             repo = self.getgit(Path(dir).parent)
         return (repo, os.path.basename(os.path.normpath(dir)))
-    def getcommitdata(repo, dir):
+    def getrecentcommitdata(repo, dir):
 
         head = repo.head.reference
 
