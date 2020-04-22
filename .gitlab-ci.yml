@@ -22,7 +22,7 @@ build:
     - python3 ./deb_changectl/deb_changectl.py -R -t $CI_COMMIT_TAG -m $CI_COMMIT_MESSAGE;python3 ./deb_changectl/deb_changectl.py -R -G debian/changelog -R -t $CI_COMMIT_TAG -m $CI_COMMIT_MESSAGE
     - find ./ -name changelog -type f -exec cat {} \;
     - echo "Building..."
-    - cd build;/usr/bin/dpkg-buildpackage -kdevops@puppet-control.home.local
+    - /usr/bin/dpkg-buildpackage -kdevops@puppet-control.home.local
     - echo "Done. Copying to upstream repos."
     - sshpass -p devops scp -o StrictHostKeyChecking=no ../deb-changectl* devops@192.168.4.59:/srv/deb/debian/incoming/
     - echo "Done."
@@ -35,7 +35,7 @@ build-snapshots:
     - python3 ./deb_changectl/deb_changectl.py -c $CI_COMMIT_SHORT_SHA -t $CI_COMMIT_SHORT_SHA -m $CI_COMMIT_MESSAGE;python3 ./deb_changectl/deb_changectl.py -G debian/changelog -c $CI_COMMIT_SHORT_SHA -t $CI_COMMIT_SHORT_SHA -m $CI_COMMIT_MESSAGE
     - find ./ -name changelog -type f -exec cat {} \;
     - echo "Building..."
-    - cd build;/usr/bin/dpkg-buildpackage -kdevops@puppet-control.home.local
+    - /usr/bin/dpkg-buildpackage -kdevops@puppet-control.home.local
     - echo "Done. Copying to upstream repos."
     - echo "Done."
   only:
