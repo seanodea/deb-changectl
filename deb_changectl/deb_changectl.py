@@ -9,15 +9,12 @@ from conf import load
 import datetime
 # Parse options and fetch defaults from git
 optsobj = options()
-parameters = optsobj.getparameters()
+(parameters, alltags) = optsobj.getparameters()
 opts = optsobj.parseoptions(sys.argv, parameters)
 
 # Getting yaml file contents
 changes = load.load.getchanges()
 
-# TODO: get an object of all the commits
-# If some release flag is specified, then commits will be limited tags only, otherwise it'll be all the commits in the current branch
-# loop this
 changes['changelist'][opts[0].tag] = {
     'package-name': opts[0].package_name.replace(" ","-").replace("_","-"),
     'message': opts[0].message,

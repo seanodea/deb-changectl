@@ -2,6 +2,7 @@ import os
 import datetime
 import git
 from pathlib import Path
+import email.utils
 
 class commit():
     
@@ -28,3 +29,22 @@ class commit():
           'email': head.commit.author.email,
         }
         return commitdata
+
+    def getalltags(repo, dir):
+      changes = {'changelist': {}}
+      tags = repo.tags
+      # foreach tag as .
+      for tag in tags:
+        tagref = tag
+        commit = tagref.commit
+        changes['changelist'][commit.hexsha[0:8]] = {
+          'package-name': dir.replace(" ","-").replace("_","-"),
+          'message': commit.message,
+          'ref': commit.hexsha[0:8],
+          'author-name': commit.author.name,
+          'author-email': commit.author.email,
+          'distributions': 'oldstable,stable,unstable',
+          'urgency': 'medium',
+          'date': email.utils.format_datetime(datetime.datetime.fromtimestamp(commit.committed_date)),
+        }
+        return changes

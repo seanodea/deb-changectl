@@ -1,4 +1,15 @@
 changelist:
+  1a9d7a8f:
+    author-email: patchshorts@gmail.com
+    author-name: Chris Godwin
+    date: Tue, 21 Apr 2020 07:12:59 -0000
+    distributions: stable
+    message: 'Merge branch ''master'' of https://gitlab.com/gutils/deb-changectl
+
+      '
+    package-name: deb-changectl
+    ref: 1a9d7a8f
+    urgency: low
   bd50ce77:
     author-email: patchshorts@gmail.com
     author-name: Chris Godwin

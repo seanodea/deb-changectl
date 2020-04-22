@@ -9,7 +9,8 @@ class options():
     def getparameters(self):
         (repo, dir) = commit.getdir(os.getcwd())
         parameters = commit.getrecentcommitdata(repo, dir)
-        return parameters
+        alltags = commit.getalltags(repo, dir)
+        return (parameters, alltags)
     
     def parseoptions(self, args, parameters):
         parser = optparse.OptionParser(usage="run with -h for help.")
