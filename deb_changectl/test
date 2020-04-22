@@ -1,0 +1,7 @@
+deb-changectl (protov1) oldstable,stable,unstable; urgency=medium
+
+Merge branch 'master' of https://gitlab.com/gutils/deb-changectl
+
+
+ -- Chris Godwin <patchshorts@gmail.com>  Tue, 21 Apr 2020 07:12:59 -0000
+
