@@ -1,0 +1,33 @@
+image: "patchshorts/build202004:v1"
+
+before_script:
+  - export DEBIAN_FRONTEND=noninteractive
+  - export PACKAGES=`cat packages.list | xargs echo`
+  - echo "Updating repos and installing packages listed in packages.list..."
+  - apt-get update > /dev/null 2>&1
+  - apt-get install $PACKAGES -y > /dev/null 2>&1
+  - echo "Done"
+  - echo "Installing package signing keys..."
+  - echo "Done."
+
+build:
+  script:
+    - ./deb_changectl/deb_changectl.py -R;./deb_changectl/deb_changectl.py -G debian/changelog
+    - echo "Building..."
+    - cd build;/usr/bin/dpkg-buildpackage -kdevops@puppet-control.home.local
+    - echo "Done. Copying to upstream repos."
+    - sshpass -p devops scp -o StrictHostKeyChecking=no ../deb-changectl* devops@192.168.4.59:/srv/deb/debian/incoming/
+    - echo "Done."
+  only:
+    - tags
+
+build-snapshots:
+  script:
+    - ./deb_changectl/deb_changectl.py;./deb_changectl/deb_changectl.py -G debian/changelog
+    - echo "Building..."
+    - cd build;/usr/bin/dpkg-buildpackage -kdevops@puppet-control.home.local
+    - echo "Done. Copying to upstream repos."
+    - # Consider creating a snapshot repo # sshpass -p devops scp -o StrictHostKeyChecking=no ../flsb-app* devops@192.168.4.59:/srv/deb/debian/incoming/
+    - echo "Done."
+  only:
+    - master

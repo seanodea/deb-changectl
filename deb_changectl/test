@@ -1,7 +1,12 @@
+deb-changectl (20624c3a) stable; urgency=low
+
+     *  successfully wrote changelog
+
+ -- Chris Godwin <patchshorts@gmail.com>  Wed, 22 Apr 2020 02:23:01 -0000
+
 deb-changectl (protov1) oldstable,stable,unstable; urgency=medium
 
-Merge branch 'master' of https://gitlab.com/gutils/deb-changectl
-
+     *  Merge branch 'master' of https://gitlab.com/gutils/deb-changectl
 
  -- Chris Godwin <patchshorts@gmail.com>  Tue, 21 Apr 2020 07:12:59 -0000
 

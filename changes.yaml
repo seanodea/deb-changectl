@@ -1,12 +1,12 @@
 changelist:
-  1a9d7a8f:
+  20624c3a:
     author-email: patchshorts@gmail.com
     author-name: Chris Godwin
-    date: Tue, 21 Apr 2020 07:12:59 -0000
-    distributions: oldstable,stable,unstable
-    message: 'Merge branch ''master'' of https://gitlab.com/gutils/deb-changectl
+    date: Wed, 22 Apr 2020 02:23:01 -0000
+    distributions: stable
+    message: 'successfully wrote changelog
 
       '
     package-name: deb-changectl
-    ref: protov1
-    urgency: medium
+    ref: 20624c3a
+    urgency: low

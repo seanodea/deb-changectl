@@ -25,8 +25,7 @@ class generate(object):
                     date=data['date'],
                 )
                 changelog.add_change('')
-                changelog.add_change(data['message'])
-                changelog.add_change('')
+                changelog.add_change("     *  " + data['message'])
                 f = open(option, 'w')
                 try:
                     changelog.write_to_open_file(f)

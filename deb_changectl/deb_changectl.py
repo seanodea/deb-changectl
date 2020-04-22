@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 
-import sys
-import email.utils
-import os
-import yaml
+import sys, os, yaml, email.utils
 from common.option import options
 from common.option import getopts
 from common.generate import generate
 from conf import confyaml
-import datetime
 from vcsgit.commit import commit
 # Parse options and fetch defaults from git
 

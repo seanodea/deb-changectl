@@ -1,0 +1,6 @@
+deb-changectl (20624c3a) stable; urgency=low
+
+     *  successfully wrote changelog
+
+ -- Chris Godwin <patchshorts@gmail.com>  Wed, 22 Apr 2020 02:23:01 -0000
+

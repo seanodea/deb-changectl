@@ -1,8 +1,9 @@
 import sys, os
+from vcsgit import commit
 sys.path.insert(0, os.path.abspath('..'))
 
 import yaml
-from vcsgit import commit
+
 
 
 class load():
