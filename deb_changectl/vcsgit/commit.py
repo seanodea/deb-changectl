@@ -50,7 +50,7 @@ class commit():
         try:
           head = repo.head.reference
         except TypeError:
-          print(dir(repo))
+          print(dir(repo.commit))
           print("Detached head, please specify references with flags because we cannot infer them.")
 
         commitdata = {
