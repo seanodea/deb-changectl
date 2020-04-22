@@ -1,6 +1,4 @@
-import optparse
-import os
-import sys
+import os, sys, datetime, time, optparse, email.utils
 from vcsgit.commit import commit
 
 class options():
@@ -18,6 +16,7 @@ class options():
         parser.add_option("-p","--package-name", dest="package_name", default=parameters['package-name'], help="Specify the package name writen to the changelog")
         parser.add_option("-m","--message", dest="message", default=parameters['message'], help="Specify the change itself. i.e. Released tag 1.0.0")
         parser.add_option("-t","--tag", dest="tag", default=parameters['commithash'], help="If snapshot, specify the short commit hash, otherwise use a tag(version)")
+        parser.add_option("-c","--commit", dest="commit", default=parameters['commithash'], help="Specify the short commit hash that triggers the build. Usually an environment variable in your cicd tool. i.e. gitlab: $CI_COMMIT_SHORT_SHA")
         parser.add_option("-a","--author-name", dest="author_name", default=parameters['author'], help="Specify the author of the change.")
         parser.add_option("-e","--author-email", dest="author_email", default=parameters['email'], help="Specify the author's email.")
         parser.add_option("-d","--distributions", dest="distributions", default="stable", help="Comma separated list of distros (i.e. bionic, sid, buster, stable, unstable")
@@ -40,3 +39,17 @@ class getopts():
     (parameters, alltags) = optsobj.getparameters()
     opts = optsobj.parseoptions(sys.argv, parameters)
     return opts, alltags, parameters
+
+class addargs():
+    def add(self, changes, opts):
+        changes['changelist'][opts[0].commit] = {
+            'package-name': opts[0].package_name,
+            'message': opts[0].message,
+            'ref': opts[0].tag,
+            'author-name': opts[0].author_name,
+            'author-email': opts[0].author_email,
+            'distributions': opts[0].distributions,
+            'urgency': opts[0].urgency,
+            'date': email.utils.format_datetime(datetime.datetime.fromtimestamp(int(time.time()))),
+        }
+        return changes

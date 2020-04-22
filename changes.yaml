@@ -1,12 +1,21 @@
 changelist:
-  20624c3a:
+  66c130ef:
     author-email: patchshorts@gmail.com
     author-name: Chris Godwin
-    date: Wed, 22 Apr 2020 02:23:01 -0000
+    date: Wed, 22 Apr 2020 17:36:41 -0000
     distributions: stable
-    message: 'successfully wrote changelog
+    message: test
+    package-name: deb-changectl
+    ref: 0.0.3
+    urgency: low
+  d98b3a36:
+    author-email: patchshorts@gmail.com
+    author-name: Chris Godwin
+    date: Wed, 22 Apr 2020 16:11:25 -0000
+    distributions: oldstable,stable,unstable
+    message: '.
 
       '
     package-name: deb-changectl
-    ref: 20624c3a
-    urgency: low
+    ref: 0.0.1
+    urgency: medium
