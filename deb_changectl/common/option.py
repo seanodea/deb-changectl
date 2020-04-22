@@ -21,6 +21,7 @@ class options():
         parser.add_option("-e","--author-email", dest="author_email", default=parameters['email'], help="Specify the author's email.")
         parser.add_option("-d","--distributions", dest="distributions", default="stable", help="Comma separated list of distros (i.e. bionic, sid, buster, stable, unstable")
         parser.add_option("-u","--urgency", dest="urgency", default="low", help="Specify the package name writen to the changelog")
+        parser.add_option("-R","--release", action="store_true", dest="release", default=False, help="By default we assume snapshot mode, specify this to issue release mode.")
         options = parser.parse_args(args)
 
         try:

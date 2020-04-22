@@ -40,7 +40,7 @@ class commit():
         changes['changelist'][commit.hexsha[0:8]] = {
           'package-name': dir.replace(" ","-").replace("_","-"),
           'message': commit.message,
-          'ref': commit.hexsha[0:8],
+          'ref': tagref.name,
           'author-name': commit.author.name,
           'author-email': commit.author.email,
           'distributions': 'oldstable,stable,unstable',
