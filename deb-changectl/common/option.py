@@ -12,7 +12,7 @@ class options():
         return (parameters, alltags)
     
     def parseoptions(self, args, parameters):
-        parser = optparse.OptionParser(usage="deb_changectl [args]")
+        parser = optparse.OptionParser(usage="deb-changectl [args]")
         parser.add_option("-p","--package-name", dest="package_name", default=parameters['package-name'], help="Specify the package name writen to the changelog")
         parser.add_option("-m","--message", dest="message", default=parameters['message'], help="Specify the change itself. i.e. Released tag 1.0.0")
         parser.add_option("-t","--tag", dest="tag", default=parameters['commithash'], help="If snapshot, specify the short commit hash, otherwise use a tag(version)")

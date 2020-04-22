@@ -25,7 +25,7 @@ class write():
         try:
             with open(dir + "/changes.yaml", 'w') as outfile:
                 yaml.dump(changes, outfile, default_flow_style=False)
-                print("wrote changes to " + dir + "/changes.yaml. Now run deb_changectl --generate /path/to/debian/changelog.")
+                print("wrote changes to " + dir + "/changes.yaml.")
         except PermissionError:
             print("You don't have permissions on changes.yaml or the git directory.")
             sys.exit(1)
