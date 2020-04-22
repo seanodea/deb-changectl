@@ -47,7 +47,10 @@ class commit():
 
     def getrecentcommitdata(repo, dir):
 
-        head = repo.head.reference
+        try:
+          head = repo.head.reference
+        except TypeError:
+          head = repo.heads[0].reference
 
         commitdata = {
           'package-name': dir,
