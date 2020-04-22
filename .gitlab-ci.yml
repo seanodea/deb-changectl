@@ -35,7 +35,6 @@ build-snapshots:
     - echo "Building..."
     - cd build;/usr/bin/dpkg-buildpackage -kdevops@puppet-control.home.local
     - echo "Done. Copying to upstream repos."
-    - # Consider creating a snapshot repo # sshpass -p devops scp -o StrictHostKeyChecking=no ../flsb-app* devops@192.168.4.59:/srv/deb/debian/incoming/
     - echo "Done."
   only:
     - master
