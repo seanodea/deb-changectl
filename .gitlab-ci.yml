@@ -12,6 +12,8 @@ before_script:
   - echo "Done."
 
 build:
+  only:
+    - tags
   script:
     - ./deb_changectl/deb_changectl.py -R;./deb_changectl/deb_changectl.py -G debian/changelog
     - echo "Building..."
@@ -19,10 +21,10 @@ build:
     - echo "Done. Copying to upstream repos."
     - sshpass -p devops scp -o StrictHostKeyChecking=no ../deb-changectl* devops@192.168.4.59:/srv/deb/debian/incoming/
     - echo "Done."
-  only:
-    - tags
 
 build-snapshots:
+  only:
+    - master
   script:
     - python3 ./deb_changectl/deb_changectl.py; python3 ./deb_changectl/deb_changectl.py -G debian/changelog
     - echo "Building..."
@@ -30,5 +32,3 @@ build-snapshots:
     - echo "Done. Copying to upstream repos."
     - # Consider creating a snapshot repo # sshpass -p devops scp -o StrictHostKeyChecking=no ../flsb-app* devops@192.168.4.59:/srv/deb/debian/incoming/
     - echo "Done."
-  only:
-    - master
