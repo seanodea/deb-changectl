@@ -5,6 +5,7 @@
 	dh $@
 
 # Import current active keys
-#override_dh_auto_build:
-#
+override_dh_auto_build:
+	cd $(CURDIR);pwd
 override_dh_auto_clean:
+	cd $(CURDIR);pwd
