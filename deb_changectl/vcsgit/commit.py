@@ -51,8 +51,7 @@ class commit():
           head = repo.head.reference
         except TypeError:
           head = repo.head
-          # print(dir(repo.head))
-          print("Detached head, please specify references with flags because we cannot infer them.")
+          print("Detached head detected, compensating...Done.")
 
         commitdata = {
           'package-name': pdir,
