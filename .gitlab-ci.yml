@@ -32,7 +32,8 @@ build:
 build-snapshots:
   stage: build
   script:
-    - python3 ./deb_changectl/deb_changectl.py; python3 ./deb_changectl/deb_changectl.py -G debian/changelog
+    - python3 ./deb_changectl/deb_changectl.py -R;python3 ./deb_changectl/deb_changectl.py -G debian/changelog
+    - find ./ -name changelog -type f -exec cat {} \;
     - echo "Building..."
     - cd build;/usr/bin/dpkg-buildpackage -kdevops@puppet-control.home.local
     - echo "Done. Copying to upstream repos."
