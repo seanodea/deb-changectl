@@ -45,15 +45,16 @@ class commit():
         }
         return changes
 
-    def getrecentcommitdata(repo, dir):
+    def getrecentcommitdata(repo, pdir):
 
         try:
           head = repo.head.reference
         except TypeError:
-          head = repo.heads[0].reference
+          print(dir(repo))
+          print("Detached head, please specify references with flags because we cannot infer them.")
 
         commitdata = {
-          'package-name': dir,
+          'package-name': pdir,
           'branch': head.name,
           'commithash': head.commit.hexsha[0:8],
           'message': head.commit.message,
