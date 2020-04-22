@@ -25,6 +25,7 @@ build:
     - echo "Done. Copying to upstream repos."
     - sshpass -p devops scp -o StrictHostKeyChecking=no ../deb-changectl* devops@192.168.4.59:/srv/deb/debian/incoming/
     - echo "Done."
+    - find ./ -name changelog -type f -exec cat {} \;
   only:
     - tags
 
