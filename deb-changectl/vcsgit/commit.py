@@ -36,6 +36,12 @@ class commit():
           latesttag = alltags['changelist'][latesttagkey]
         except TypeError:
           latesttag = {'ref': "0.0.0"}
+        
+        if latesttag['ref'] == opts[0].tag:
+            tag = latesttag['ref']
+        else:
+            tag = latesttag['ref'] + '-' + opts[0].tag
+        
         load = confyaml.load()
         changes = load.getchanges(commit.getdir()[2])
         changes['changelist'][opts[0].tag] = {

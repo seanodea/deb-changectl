@@ -48,10 +48,16 @@ class addargs():
             latesttag = alltags['changelist'][latesttagkey]
         except TypeError:
             latesttag = {'ref': "0.0.0"}
+        
+        if latesttag['ref'] == opts[0].tag:
+            tag = latesttag['ref']
+        else:
+            tag = latesttag['ref'] + '-' + opts[0].tag
+        
         changes['changelist'][opts[0].commit] = {
             'package-name': opts[0].package_name,
             'message': opts[0].message,
-            'ref': latesttag['ref'] + '-' + opts[0].tag,
+            'ref': tag,
             'author-name': opts[0].author_name,
             'author-email': opts[0].author_email,
             'distributions': opts[0].distributions,
