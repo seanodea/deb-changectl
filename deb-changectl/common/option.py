@@ -43,8 +43,11 @@ class getopts():
 class addargs():
     def add(self, changes, alltags, opts):
         # Getting yaml file contents
-        latesttagkey = next(iter(alltags['changelist']))
-        latesttag = alltags['changelist'][latesttagkey]
+        try:
+            latesttagkey = next(iter(alltags['changelist']))
+            latesttag = alltags['changelist'][latesttagkey]
+        except TypeError:
+            latesttag = {'ref': "0.0.0"}
         changes['changelist'][opts[0].commit] = {
             'package-name': opts[0].package_name,
             'message': opts[0].message,

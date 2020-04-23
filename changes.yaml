@@ -21,3 +21,14 @@ changelist:
     package-name: deb-changectl
     ref: 0.0.1
     urgency: medium
+  d9d0d341:
+    author-email: patchshorts@gmail.com
+    author-name: Chris Godwin
+    date: Thu, 23 Apr 2020 02:54:39 -0000
+    distributions: stable
+    message: 'added a few gitignores
+
+      '
+    package-name: deb-changectl
+    ref: 0.0.1_d9d0d341
+    urgency: low

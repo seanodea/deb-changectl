@@ -31,8 +31,11 @@ class commit():
         return alltags
       else:
         # Getting yaml file contents
-        latesttagkey = next(iter(alltags['changelist']))
-        latesttag = alltags['changelist'][latesttagkey]
+        try:
+          latesttagkey = next(iter(alltags['changelist']))
+          latesttag = alltags['changelist'][latesttagkey]
+        except TypeError:
+          latesttag = {'ref': "0.0.0"}
         load = confyaml.load()
         changes = load.getchanges(commit.getdir()[2])
         changes['changelist'][opts[0].tag] = {
@@ -55,15 +58,19 @@ class commit():
           head = repo.head
           print("Detached head detected, compensating...Done.")
 
-        commitdata = {
-          'package-name': pdir,
-          'branch': head.name,
-          'commithash': head.commit.hexsha[0:8],
-          'message': head.commit.message,
-          'commitdateraw': head.commit.committed_date,
-          'author': head.commit.author.name,
-          'email': head.commit.author.email,
-        }
+        try:
+          commitdata = {
+            'package-name': pdir,
+            'branch': head.name,
+            'commithash': head.commit.hexsha[0:8],
+            'message': head.commit.message,
+            'commitdateraw': head.commit.committed_date,
+            'author': head.commit.author.name,
+            'email': head.commit.author.email,
+          }
+        except ValueError:
+          print("Cannot find any commits. Try making some.")
+          sys.exit(2)
         return commitdata
 
     def getalltags(repo, dir):
