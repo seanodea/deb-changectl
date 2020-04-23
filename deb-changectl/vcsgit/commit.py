@@ -31,12 +31,14 @@ class commit():
         return alltags
       else:
         # Getting yaml file contents
+        latesttagkey = next(iter(alltags['changelist']))
+        latesttag = alltags['changelist'][latesttagkey]
         load = confyaml.load()
         changes = load.getchanges(commit.getdir()[2])
         changes['changelist'][opts[0].tag] = {
             'package-name': opts[0].package_name.replace(" ","-").replace("_","-"),
             'message': opts[0].message,
-            'ref': opts[0].tag,
+            'ref': latesttag['ref'] + '_' + opts[0].tag,
             'author-name': opts[0].author_name,
             'author-email': opts[0].author_email,
             'distributions': opts[0].distributions,

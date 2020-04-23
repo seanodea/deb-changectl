@@ -1,0 +1,23 @@
+changelist:
+  8b3f8063:
+    author-email: patchshorts@gmail.com
+    author-name: Chris Godwin
+    date: Thu, 23 Apr 2020 02:49:22 -0000
+    distributions: stable
+    message: 'trying the use of dh_link
+
+      '
+    package-name: deb-changectl
+    ref: 0.0.1_8b3f8063
+    urgency: low
+  d98b3a36:
+    author-email: patchshorts@gmail.com
+    author-name: Chris Godwin
+    date: Wed, 22 Apr 2020 16:11:25 -0000
+    distributions: oldstable,stable,unstable
+    message: '.
+
+      '
+    package-name: deb-changectl
+    ref: 0.0.1
+    urgency: medium
