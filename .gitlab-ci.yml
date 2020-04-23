@@ -8,8 +8,6 @@ before_script:
   - apt-get update > /dev/null 2>&1
   - apt-get install $PACKAGES -y > /dev/null 2>&1
   - echo "Done"
-  - echo "Installing package signing keys..."
-  - echo "Done."
 
 stages:
   - build
@@ -36,7 +34,7 @@ build-snapshots:
     - find ./ -name changelog -type f -exec cat {} \;
     - echo "Building..."
     - /usr/bin/dpkg-buildpackage -kdevops@puppet-control.home.local
-    - echo "Done. Copying to upstream repos."
+    - find ../ -name "deb-changectl_${CI_COMMIT_SHORT_SHA}*" -name "deb-changectl_${CI_COMMIT_TAG}*"
     - echo "Done."
   only:
     - master
