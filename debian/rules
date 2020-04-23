@@ -6,6 +6,6 @@
 
 # Import current active keys
 override_dh_auto_build:
-	cd $(CURDIR);pwd
+	dh_link usr/lib/deb-changectl/deb-changectl.py usr/bin/deb-changectl
 override_dh_auto_clean:
 	cd $(CURDIR);pwd
