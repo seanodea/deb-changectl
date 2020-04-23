@@ -1,14 +1,25 @@
 changelist:
-  8b3f8063:
+  6899a0e9:
     author-email: patchshorts@gmail.com
     author-name: Chris Godwin
-    date: Thu, 23 Apr 2020 02:49:22 -0000
+    date: Thu, 23 Apr 2020 04:35:28 -0000
     distributions: stable
-    message: 'trying the use of dh_link
+    message: 'testing error correction
 
       '
     package-name: deb-changectl
-    ref: 0.0.1_8b3f8063
+    ref: blah
+    urgency: low
+  blah:
+    author-email: patchshorts@gmail.com
+    author-name: Chris Godwin
+    date: Thu, 23 Apr 2020 04:00:30 -0000
+    distributions: stable
+    message: 'testing error correction
+
+      '
+    package-name: deb-changectl
+    ref: 0.0.1-blah
     urgency: low
   d98b3a36:
     author-email: patchshorts@gmail.com
@@ -21,14 +32,3 @@ changelist:
     package-name: deb-changectl
     ref: 0.0.1
     urgency: medium
-  d9d0d341:
-    author-email: patchshorts@gmail.com
-    author-name: Chris Godwin
-    date: Thu, 23 Apr 2020 02:54:39 -0000
-    distributions: stable
-    message: 'added a few gitignores
-
-      '
-    package-name: deb-changectl
-    ref: 0.0.1_d9d0d341
-    urgency: low
