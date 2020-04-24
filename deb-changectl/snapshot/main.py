@@ -37,7 +37,6 @@ class Snapshot:
             changelog.add_change(' ' + git.headcommit['message'])
             changelog.add_change("\n")
             
-            print(repr(opts[1]))
             f = open(opts[1][1], 'w')
             try:
                 changelog.write_to_open_file(f)
@@ -45,16 +44,3 @@ class Snapshot:
             finally:
                 f.close()
             sys.exit(0)
-
-            '''            self.headcommit = {
-                'package-name': self.repodir.replace(" ","-").replace("_","-"),
-                'branch': head.name,
-                'commithash': head.commit.hexsha[0:8],
-                'message': head.commit.message,
-                'date': email.utils.format_datetime(datetime.datetime.fromtimestamp(head.commit.committed_date)),
-                'dateraw': head.commit.committed_date,
-                'author': head.commit.author.name,
-                'email': head.commit.author.email,
-                'urgency': opts.urgency,
-                'distributions': opts.distributions,
-            }'''

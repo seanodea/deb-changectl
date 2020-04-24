@@ -1,5 +1,5 @@
 *.save
 *.pyc
-__pycache__
+*__pycache__*
 changelog
 debian/changelog
