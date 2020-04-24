@@ -15,4 +15,4 @@ if Opts.options[0].release:
 else:
     # Snapshot: get all the tags, write them to changelog...
     # then get the latest commit, write it as a snapshot.
-    Snapshot = Snapshot(Opts.options, Git)na
+    Snapshot = Snapshot(Opts.options, Git)
