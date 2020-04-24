@@ -1,21 +1,15 @@
 import sys
 import debian
 
-class generate(object):
-    def itis(option):
-        if option:
-            return True
-        else:
-            return False
-    def generate(self, option, changes):
-        itis = self.itis(option)
-        if itis:
-            # put changes into changelog
+class Release:
+    def __init__(self, opts, alltags):
+        self.generate(opts, alltags)
+    def generate(self, opts, changes):
             from debian.changelog import Changelog, Version
             changelog = Changelog()
 
-            for change in changes['changelist']:
-                data = changes['changelist'][change]
+            for change in changes:
+                data = change
 
                 changelog.new_block(package=data['package-name'],
                     version=data['ref'],
@@ -25,13 +19,11 @@ class generate(object):
                     date=data['date'],
                 )
                 changelog.add_change('')
-                changelog.add_change("     *  " + data['message'])
+                changelog.add_change(data['message'])
                 changelog.add_change('')
-                f = open(option, 'w')
+                f = open(opts[1][1], 'w')
                 try:
                     changelog.write_to_open_file(f)
                 finally:
                     f.close()
             sys.exit(0)
-        else:
-            pass
