@@ -1,3 +1,4 @@
 *.save
 *.pyc
 __pycache__
+changelog
