@@ -37,9 +37,11 @@ class Snapshot:
             changelog.add_change(git.headcommit['message'])
             changelog.add_change('')
             
+            print(repr(opts[1]))
             f = open(opts[1][1], 'w')
             try:
                 changelog.write_to_open_file(f)
+                print("wrote to file: " + opts[1][1])
             finally:
                 f.close()
             sys.exit(0)
