@@ -33,9 +33,9 @@ class Snapshot:
                 author=git.headcommit['author-name'] + " <" + git.headcommit['author-email'] + ">",
                 date=git.headcommit['date'],
             )
-            changelog.add_change('')
-            changelog.add_change(git.headcommit['message'])
-            changelog.add_change('')
+            changelog.add_change("\n")
+            changelog.add_change(' ' + git.headcommit['message'])
+            changelog.add_change("\n")
             
             print(repr(opts[1]))
             f = open(opts[1][1], 'w')
