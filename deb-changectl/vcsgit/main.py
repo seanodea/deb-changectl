@@ -26,7 +26,7 @@ class Git:
             try:
                 repo = git.Repo(Path(directory).parent)
                 directory = Path(directory).parent
-            except git.exc.InvalidGitRepositoryError:
+            except:
                 try:
                     repo = self.getgit(Path(directory).parent)
                     directory = Path(directory).parent
