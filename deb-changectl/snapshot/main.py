@@ -27,7 +27,7 @@ class Snapshot:
             finally:
                 f.close()
             changelog.new_block(package=git.headcommit['package-name'],
-                version=git.latesttag['ref'] + "+" + str(opts[0].buildnum) + '+' + str(git.headcommit['commithash']),
+                version=git.latesttag[0]['ref'] + "+" + str(opts[0].buildnum) + '+' + str(git.headcommit['commithash']),
                 distributions=git.headcommit['distributions'],
                 urgency=git.headcommit['urgency'],
                 author=git.headcommit['author-name'] + " <" + git.headcommit['author-email'] + ">",
