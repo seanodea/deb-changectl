@@ -35,7 +35,8 @@ class Git:
                     sys.exit(1)
         return (repo, os.path.basename(os.path.normpath(directory)), os.path.normpath(directory))
     def gettags(self, opts):
-        tags = self.repo.tags
+        utags = self.repo.tags
+        tags = sorted(utags, key=lambda t: t.commit.committed_datetime)
         # foreach tag as .
         i = len(tags)
         for tag in tags:
