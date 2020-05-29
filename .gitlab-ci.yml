@@ -17,10 +17,10 @@ stages:
 build:
   stage: build
   script:
-    - deb-changectl -b "${CI_JOB_ID}" -R -t "${CI_COMMIT_TAG}" -m "${CI_COMMIT_MESSAGE}" debian/changelog
+    - ./deb-changectl -b "${CI_JOB_ID}" -R -t "${CI_COMMIT_TAG}" -m "${CI_COMMIT_MESSAGE}" debian/changelog
     - find ./ -name changelog -type f -exec cat {} \;
     - echo "Building..."
-    - /usr/bin/dpkg-buildpackage -kdevops@puppet-control.home.local
+    - /usr/bin/dpkg-buildpackage -kpatchshorts@gmail.com
     - echo "Done. Copying to upstream repos."
     - find ../ -name "deb-changectl_*${CI_COMMIT_TAG}*" -exec sshpass -p devops scp -o StrictHostKeyChecking=no {} devops@192.168.4.59:/srv/deb/debian/incoming/ \;
     - echo "Done."
@@ -30,10 +30,10 @@ build:
 build-snapshots:
   stage: build
   script:
-    - deb-changectl -b "${CI_JOB_ID}" -c "${CI_COMMIT_SHORT_SHA}" -t "${CI_COMMIT_SHORT_SHA}" -m "${CI_COMMIT_MESSAGE}" debian/changelog
+    - ./deb-changectl -b "${CI_JOB_ID}" -c "${CI_COMMIT_SHORT_SHA}" -t "${CI_COMMIT_SHORT_SHA}" -m "${CI_COMMIT_MESSAGE}" debian/changelog
     - find ./ -name changelog -type f -exec cat {} \;
     - echo "Building..."
-    - /usr/bin/dpkg-buildpackage -kdevops@puppet-control.home.local
+    - /usr/bin/dpkg-buildpackage -kpatchshorts@gmail.com
     - find ../ -name "deb-changectl_*${CI_COMMIT_SHORT_SHA}*" -exec sshpass -p devops scp -o StrictHostKeyChecking=no {} devops@192.168.4.59:/srv/deb/debian/incoming/ \;
     - echo "Done."
   only:
