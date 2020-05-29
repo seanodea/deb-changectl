@@ -20,7 +20,6 @@ class Release:
                 )
                 changelog.add_change('')
                 changelog.add_change('  * ' + data['message'])
-                changelog.add_change('')
                 f = open(opts[1][1], 'w')
                 try:
                     changelog.write_to_open_file(f)

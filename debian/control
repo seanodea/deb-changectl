@@ -1,6 +1,6 @@
 Source: deb-changectl
 Priority: optional
-Section: unknown
+Section: utils
 Maintainer: Chris Godwin <patchshorts@gmail.com>
 Build-Depends: debhelper (>= 9), gnupg
 Standards-Version: 3.9.5
