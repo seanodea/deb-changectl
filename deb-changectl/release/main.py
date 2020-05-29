@@ -19,7 +19,7 @@ class Release:
                     date=data['date'],
                 )
                 changelog.add_change('')
-                changelog.add_change('  *' + data['message'])
+                changelog.add_change('  * ' + data['message'])
                 changelog.add_change('')
                 f = open(opts[1][1], 'w')
                 try:

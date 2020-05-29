@@ -19,7 +19,7 @@ class Snapshot:
                     date=data['date'],
                 )
                 changelog.add_change('')
-                changelog.add_change('  *' + data['message'])
+                changelog.add_change('  * ' + data['message'])
                 changelog.add_change('')
             f = open(opts[1][1], 'w')
             try:
@@ -34,7 +34,7 @@ class Snapshot:
                 date=git.headcommit['date'],
             )
             changelog.add_change("\n")
-            changelog.add_change('  *' + git.headcommit['message'])
+            changelog.add_change('  * ' + git.headcommit['message'])
             changelog.add_change("\n")
             
             f = open(opts[1][1], 'w')
