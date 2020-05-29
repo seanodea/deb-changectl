@@ -35,7 +35,7 @@ class Snapshot:
             )
             changelog.add_change("\n")
             changelog.add_change('  * ' + git.headcommit['message'])
-            changelog.add_change("\n")
+            changelog.add_change('')
             
             f = open(opts[1][1], 'w')
             try:
