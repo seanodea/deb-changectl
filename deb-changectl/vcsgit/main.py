@@ -37,11 +37,12 @@ class Git:
     def gettags(self, opts):
         utags = self.repo.tags
         tags = sorted(utags, key=lambda t: t.commit.committed_datetime)
+        package = opts.package_name if opts.package_name else self.repodir.replace(" ","-").replace("_","-")
         # foreach tag as .
         i = len(tags)
         for tag in tags:
             self.alltags.append({
-                'package-name': self.repodir.replace(" ","-").replace("_","-"),
+                'package-name': package,
                 'message': tag.commit.message,
                 'ref': tag.name,
                 'author-name': tag.commit.author.name,
@@ -62,9 +63,10 @@ class Git:
             head = self.repo.head
             print("Detached head detected, compensating...Done.")
 
+        package = opts.package_name if opts.package_name else self.repodir.replace(" ","-").replace("_","-")
         try:
             self.headcommit = {
-                'package-name': self.repodir.replace(" ","-").replace("_","-"),
+                'package-name': package,
                 'branch': head.name,
                 'commithash': head.commit.hexsha[0:8],
                 'message': head.commit.message,
