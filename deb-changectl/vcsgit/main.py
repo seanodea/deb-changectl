@@ -38,18 +38,18 @@ class Git:
         utags = self.repo.tags
         tags = sorted(utags, key=lambda t: t.commit.committed_datetime)
         package = opts.package_name if opts.package_name else self.repodir.replace(" ","-").replace("_","-")
-        # foreach tag as .
-        if len(tags) == 0:
-          self.alltags.append(
+        # foreach tag as
+        if len(utags) == 0:
+            self.alltags.append({
                 'package-name': package,
                 'message': 'No Tags Yet',
-                'ref': 0.0.0,
+                'ref': '0.0.0',
                 'author-name': 'Create Tags',
                 'author-email': '<notagsyet@pleasemakesome.local>',
                 'urgency': 'low',
                 'date': email.utils.format_datetime(time.time()),
-                'distributions': 'stable'
-          })
+                'distributions': 'stable',
+            })
         for tag in tags:
             self.alltags.append({
                 'package-name': package,
@@ -61,10 +61,7 @@ class Git:
                 'date': email.utils.format_datetime(datetime.datetime.fromtimestamp(tag.commit.committed_date)),
                 'distributions': opts.distributions,
             })
-        try:
-            self.latesttag = self.alltags[len(self.alltags)-1]
-        except:
-            self.latesttag.append({'ref': "0.0.0"})
+        self.latesttag.append(self.alltags[len(self.alltags)-1])
     def getheadcommit(self, opts):
         try:
             head = self.repo.head.reference
