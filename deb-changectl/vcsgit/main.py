@@ -47,7 +47,7 @@ class Git:
                 'author-name': 'Create Tags',
                 'author-email': '<notagsyet@pleasemakesome.local>',
                 'urgency': 'low',
-                'date': email.utils.format_datetime(time.time()),
+                'date': email.utils.format_datetime(datetime.datetime.fromtimestamp(time.time())),
                 'distributions': 'stable',
             })
         for tag in tags:
