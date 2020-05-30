@@ -1,4 +1,4 @@
-import os, sys, datetime, git, email.utils
+import os, sys, time, datetime, git, email.utils
 from pathlib import Path
 
 class Git:
