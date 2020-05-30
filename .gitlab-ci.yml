@@ -6,8 +6,8 @@ before_script:
   - echo "Updating repos and installing packages listed in packages.list..."
   - apt-get update > /dev/null 2>&1
   - cat packages.list | xargs apt-get install -y
-  - echo "${PPA_PUBKEY_BASE64}" | base64 -d | gpg --import
-  - echo "${PPA_PRIVKEY_BASE64}" | base64 -d | gpg --import
+  - echo $PPA_PUBKEY_BASE64 | base64 -d | gpg --import
+  - echo $PPA_PRIVKEY_BASE64 | base64 -d | gpg --import
   - echo "Done"
 
 stages:
