@@ -39,7 +39,17 @@ class Git:
         tags = sorted(utags, key=lambda t: t.commit.committed_datetime)
         package = opts.package_name if opts.package_name else self.repodir.replace(" ","-").replace("_","-")
         # foreach tag as .
-        i = len(tags)
+        if len(tags) == 0:
+          self.alltags.append(
+                'package-name': package,
+                'message': 'No Tags Yet',
+                'ref': 0.0.0,
+                'author-name': 'Create Tags',
+                'author-email': '<notagsyet@pleasemakesome.local>',
+                'urgency': 'low',
+                'date': email.utils.format_datetime(time.time()),
+                'distributions': 'stable'
+          })
         for tag in tags:
             self.alltags.append({
                 'package-name': package,
@@ -51,7 +61,6 @@ class Git:
                 'date': email.utils.format_datetime(datetime.datetime.fromtimestamp(tag.commit.committed_date)),
                 'distributions': opts.distributions,
             })
-            i -= 1
         try:
             self.latesttag = self.alltags[len(self.alltags)-1]
         except:
