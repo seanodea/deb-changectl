@@ -1,7 +1,7 @@
 # Installation
 
 ```
-sudo apt-add-repository ppa:patchshorts/gutils
+sudo apt-add-repository 'deb http://ppa.launchpad.net/patchshorts/gutils/ubuntu focal main'
 apt-get install deb-changectl
 ```
 
