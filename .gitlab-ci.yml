@@ -31,7 +31,7 @@ build:
 build-snapshots:
   stage: build
   script:
-    - ./deb-changectl/deb-changectl.py -b "${CI_JOB_ID}" -c "${CI_COMMIT_SHORT_SHA}" -t "${CI_COMMIT_SHORT_SHA}" -m "${CI_COMMIT_MESSAGE}" -y medium -d focal debian/changelog
+    - ./deb-changectl/deb-changectl.py -b "${CI_JOB_ID}" -c "${CI_COMMIT_SHORT_SHA}" -t "${CI_COMMIT_SHORT_SHA}" -m "${CI_COMMIT_MESSAGE}" -u medium -d focal debian/changelog
     - find ./ -name changelog -type f -exec cat {} \;
     - echo "Building..."
     - /usr/bin/dpkg-buildpackage -kpatchshorts@gmail.com --build=source
