@@ -1,3 +1,10 @@
+# Installation
+
+```
+sudo apt-add-repository ppa:patchshorts/gutils
+apt-get install deb-changectl
+```
+
 # How it works
 
 deb-changectl only reads from the git log and writes to the changelog. It does this in a sensible way for the devops engineer to enable developers to have snapshot packages and release packages with a sensible versioning scheme.
